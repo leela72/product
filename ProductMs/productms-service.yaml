@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: productms
+spec:
+  selector:
+    app: productms
+  ports:
+    - protocol: TCP
+      port: 8586            #port at which service is internally available
+      targetPort: 8586      #port of container
+      name: http
+  type: LoadBalancer

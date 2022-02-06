@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment                  #what kind of object you want to create
+metadata:
+  name: productms
+ 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productms
+  template:
+    metadata:
+      labels:
+        app: productms
+    spec:
+      containers:
+      - name: productms             #container name
+        image: leela72/productms    #image name
+        ports:
+        - containerPort: 8586
